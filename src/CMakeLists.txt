@@ -1,1 +1,1 @@
-ADD_LIBRARY(some_lib dupa.cpp)
+ADD_LIBRARY(unresolved_symbol unresolved_symbol.cpp unresolved_symbol.h)
