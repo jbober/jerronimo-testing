@@ -10,9 +10,10 @@
 SET (CMAKE_MODULE_LINKER_FLAGS /FORCE:UNRESOLVED)
 
 ENABLE_TESTING()
+INCLUDE_DIRECTORIES(..)
 INCLUDE_DIRECTORIES(../src)
 add_executable(example_test example.cpp)
 #SET_TARGET_PROPERTIES(example_test PROPERTIES LINK_FLAGS /FORCE:UNRESOLVED)
-target_link_libraries(example_test unresolved_symbol gmock gmock_main)
+target_link_libraries(example_test unresolved_symbol sqlite_poligon sqlite gmock gmock_main)
 
 add_test(example_test example_test)
