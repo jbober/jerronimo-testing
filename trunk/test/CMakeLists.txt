@@ -1,4 +1,3 @@
-
 #SET(TESTNAMES example example2)
 
 #foreach(testname ${TESTNAMES})
@@ -8,6 +7,8 @@
 #endforeach(testname)
 
 SET (CMAKE_MODULE_LINKER_FLAGS /FORCE:UNRESOLVED)
+
+SET(BUILD_SHARED_LIBS OFF)
 
 ENABLE_TESTING()
 INCLUDE_DIRECTORIES(..)
