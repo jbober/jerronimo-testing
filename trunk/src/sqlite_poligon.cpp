@@ -16,6 +16,15 @@ void Database::openDatabase()
 	assert(result == SQLITE_OK);
 	result = sqlite3_prepare_v2(db, "SELECT * FROM student",-1, &stmt, NULL);
 	assert(result == SQLITE_OK);
+	result= sqlite3_step(stmt);
+	assert(result == SQLITE_ROW);
+	const unsigned char * dupa = sqlite3_column_text(stmt,0);
+	std::cout<< std::endl << dupa << std::endl;
+	const unsigned char * assertTo;
+	//assertTo = "myNameis";
+	//assert(dupa == assertTo);
+	//assert(result == SQLITE_OK);
+
 
 
 	std::cout << "Opening database";
