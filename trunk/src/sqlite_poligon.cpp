@@ -4,30 +4,32 @@
 
 #include <iostream>
 
-//const char *filename = "e:/Testing/jerronimo-testing/BUILD/test/Debug/testing.db";
-const char *filename = "testing.db";
+const char *filename = DATABASE_fILE;
 
-void Database::openDatabase()
+int Database::openDatabase()
 {
 	sqlite3 *db;
 	sqlite3_stmt *stmt = NULL;
 
-	int result = sqlite3_open(filename,  &db);
+	int result = 0;
+	result = sqlite3_open(filename,  &db);
 	assert(result == SQLITE_OK);
 	result = sqlite3_prepare_v2(db, "SELECT * FROM student",-1, &stmt, NULL);
 	assert(result == SQLITE_OK);
 	result= sqlite3_step(stmt);
 	assert(result == SQLITE_ROW);
-	const unsigned char * dupa = sqlite3_column_text(stmt,0);
+	int r = sqlite3_column_type(stmt, 2);
+	assert( r  == SQLITE_INTEGER);
+	const unsigned char * dupa = sqlite3_column_text(stmt,2);
 	std::cout<< std::endl << dupa << std::endl;
-	const unsigned char * assertTo;
-	//assertTo = "myNameis";
-	//assert(dupa == assertTo);
+	//char * assertTo = "myNameis";
+	//assert(*dupa == *assertTo);
 	//assert(result == SQLITE_OK);
 
 
-
+	
 	std::cout << "Opening database";
+	return result;
 }
 
  

@@ -1,5 +1,5 @@
 class Database
  {
  public:
-	 void openDatabase();
+	 int openDatabase();
  };
